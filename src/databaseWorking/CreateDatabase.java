@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateDatabase {
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String URL = "jdbc:mysql://localhost/";
-    static final String DB_URL = "jdbc:mysql://localhost/USERS";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://localhost/";
+    private static final String DB_URL = "jdbc:mysql://localhost/USERS";
 
     //  Database credentials
-    static final String USER = "Marius";
-    static final String PASS = "Dabest1234";
+    private static final String USER = "Marius";
+    private static final String PASS = "Dabest1234";
 
     public void createDatabase() {
         Connection conn = null;
