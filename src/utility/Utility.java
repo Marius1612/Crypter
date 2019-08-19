@@ -8,7 +8,7 @@ public class Utility {
 
     public static int charToAsciiCode(char caracter)
     {
-        return (int) caracter;
+        return  caracter;
     }
 
 }

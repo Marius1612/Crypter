@@ -23,21 +23,18 @@ public class AddDataInDataBase {
                 System.out.println("Inserting records into the table...");
                 stmt = conn.createStatement();
 
-                String sql = "INSERT INTO USERS " +
-                        "VALUES ( " + "\'" + username + "\'" + ", " + "\'"+password  + "\'" + ")";
+                String sql = String.format("INSERT INTO USERS VALUES ( '%s', '%s')", username, password);
                 stmt.executeUpdate(sql);
 
                 System.out.println("Inserted records into the table...");
 
-            }catch(SQLException se){
+            } catch(Exception se){
                 se.printStackTrace();
-            }catch(Exception e){
-                e.printStackTrace();
-            }finally{
+            } finally{
                 try{
                     if(stmt!=null)
                         conn.close();
-                }catch(SQLException se){
+                }catch(SQLException ignored){
                 }
                 try{
                     if(conn!=null)

@@ -26,15 +26,13 @@ public class CreateDatabase {
 
 
             System.out.println("Database created successfully...");
-        } catch (SQLException se) {
+        } catch (Exception se) {
             se.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             try {
                 if (stmt != null)
                     stmt.close();
-            } catch (SQLException se2) {
+            } catch (SQLException ignored) {
             }
             try {
                 if (conn != null)
@@ -58,23 +56,18 @@ public class CreateDatabase {
             System.out.println("Creating table...");
             stmt = conn.createStatement();
 
-            String sqlTable = "CREATE TABLE IF NOT EXISTS " + "USERS" + " (" +
-                    "username VARCHAR (50) UNIQUE NOT NULL, " +
-                    "password VARCHAR (50) NOT NULL" + ")";
+            String sqlTable = "CREATE TABLE IF NOT EXISTS USERS (username VARCHAR (50) UNIQUE NOT NULL, password VARCHAR (50) NOT NULL)";
 
             stmt.executeUpdate(sqlTable);
             System.out.println("Database created successfully...");
-        } catch (SQLException se) {
+        } catch (Exception se) {
             se.printStackTrace();
-        } catch (Exception e) {
-
-            e.printStackTrace();
         } finally {
 
             try {
                 if (stmt != null)
                     stmt.close();
-            } catch (SQLException se2) {
+            } catch (SQLException ignored) {
             }
             try {
                 if (conn != null)

@@ -3,7 +3,6 @@ package sample;
 import code.EncryptingAndDecrypting;
 import databaseWorking.AddDataInDataBase;
 import databaseWorking.Login;
-import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -33,15 +32,14 @@ public class Controller {
 
     public void encryptText(KeyEvent keyEvent) {
         EncryptingAndDecrypting encryptingAndDecrypting = new EncryptingAndDecrypting();
-        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER))
             txtEncryptedOutput.setText(encryptingAndDecrypting.cryptingMethod(txtToEncrypt.getText()));
-        }
     }
 
 
     private AddDataInDataBase addDataInDataBase = new AddDataInDataBase();
 
-        public void register(ActionEvent event){
+        public void register(){
             if (!usernameRegisterTxt.getText().isEmpty() && !passwordRegisterTxt.getText().isEmpty()) {
                 addDataInDataBase.addData(usernameRegisterTxt.getText() , passwordRegisterTxt.getText());
         }

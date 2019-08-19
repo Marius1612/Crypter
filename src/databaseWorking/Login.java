@@ -17,24 +17,20 @@ public class Login {
             conn = DriverManager.getConnection(Constants.DB_URL, Constants.USER, Constants.PASS);
 
             stmt = conn.createStatement();
-            String sql_res = "SELECT * FROM USERS WHERE username= '" + user + "'" + " AND password = '" + pass + "'";
+            String sql_res = String.format("SELECT * FROM USERS WHERE username= '%s' AND password = '%s'", user, pass);
 
             ResultSet rs = stmt.executeQuery(sql_res);
             System.out.println(rs.next());
             if(!(rs.getString(1)==null))
-            {
                 return true;
-            }
 
-        } catch (SQLException se) {
+        } catch (Exception se) {
             se.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             try {
                 if (stmt != null)
                     stmt.close();
-            } catch (SQLException se2) {
+            } catch (SQLException ignored) {
             }
             try {
                 if (conn != null)
